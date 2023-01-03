@@ -136,7 +136,7 @@ void menu(){
 }
 
 void moi(){ 
-  v: b: o:
+  v: m: c:
   if(pt[point]%5==0 && pt[point]!=0){
    srand(time(NULL));
    A=rand()%(49-1+1)+1;
@@ -144,16 +144,16 @@ void moi(){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto v;}
+      for(int u=8;u<=16;u++){if(A==k &B==u)  goto v;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto b;} 
+       for(int u=8;u<=16;u++){if(A==k &B==u)  goto m;} 
        }
  }
 }
 
 for(int p=0;p<v.size();p++){
-      if((arx[p]==a & ary[p]==b) || (arx[p]==A & ary[p]==B))goto o;{
+      if(arx[p]==A & ary[p]==B)goto c;{
  }
 }
    gotoxy(A,B);cout<<"O";
@@ -165,16 +165,16 @@ for(int p=0;p<v.size();p++){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto v;}
+      for(int u=8;u<=16;u++){if(a==k &b==u)  goto v;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto b;} 
+       for(int u=8;u<=16;u++){if(a==k &b==u)  goto m;} 
        }
  }
 }
 
 for(int p=0;p<v.size();p++){
-      if((arx[p]==a & ary[p]==b) || (arx[p]==A & ary[p]==B))goto o;{
+      if(arx[p]==a & ary[p]==b) goto c;{
  }
 }
    gotoxy(a,b);cout<<"o";
