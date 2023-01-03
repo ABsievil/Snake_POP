@@ -1,4 +1,4 @@
-#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 game ổn rồi,chơi được rồi,nma chưa có tính năng chơi lại và cập nhật 5 tài khoản point cao nhất
+#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 thiếu nhiều c/n nhỏ.....3/1 up thêm tính năng màn chơi thứ 2, fix một số bug ẩn
 #include<windows.h>  
 #include<vector>
 #include<cstdlib>  //hàm random rand
@@ -6,7 +6,7 @@
 #include<conio.h>  //thư viện để sử dụng hàm kbhit() và hàm getch()-phát hiện nhấn nút
 #include<string>
 
-//(bản hoàn thiện nhất) bản tiến bộ nhất, nhấn enter 2 lần để chơi lại, bug xóa tọa độ 0,0
+//(perfect) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn
 using namespace std;
 
 struct toado{
@@ -136,7 +136,7 @@ void menu(){
 }
 
 void moi(){ 
-  v: b:
+  v: b: o:
   if(pt[point]%5==0 && pt[point]!=0){
    srand(time(NULL));
    A=rand()%(49-1+1)+1;
@@ -149,6 +149,11 @@ void moi(){
     else if(35<=k & k<=40){
        for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto b;} 
        }
+ }
+}
+
+for(int p=0;p<v.size();p++){
+      if((arx[p]==a & ary[p]==b) || (arx[p]==A & ary[p]==B))goto o;{
  }
 }
    gotoxy(A,B);cout<<"O";
@@ -165,6 +170,11 @@ void moi(){
     else if(35<=k & k<=40){
        for(int u=8;u<=16;u++){if((a==k &b==u)||(A==k &B==u))  goto b;} 
        }
+ }
+}
+
+for(int p=0;p<v.size();p++){
+      if((arx[p]==a & ary[p]==b) || (arx[p]==A & ary[p]==B))goto o;{
  }
 }
    gotoxy(a,b);cout<<"o";
