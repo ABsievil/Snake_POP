@@ -152,10 +152,6 @@ void moi(){
  }
 }
 
-for(int p=0;p<v.size();p++){
-      if(arx[p]==A & ary[p]==B)goto c;{
- }
-}
    gotoxy(A,B);cout<<"O";
   }
   else {  
@@ -173,10 +169,6 @@ for(int p=0;p<v.size();p++){
  }
 }
 
-for(int p=0;p<v.size();p++){
-      if(arx[p]==a & ary[p]==b) goto c;{
- }
-}
    gotoxy(a,b);cout<<"o";
    }
   
