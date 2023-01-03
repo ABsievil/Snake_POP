@@ -127,8 +127,9 @@ void menu(){
   gotoxy(52,0);cout<<"tài khoản:"<<name[point];
   gotoxy(52,1);cout<<"Point:";
   gotoxy(58,1);cout<<pt[point];
-  gotoxy(52,5);cout<<"I> PAUSE:   Nhấn Space";
-  gotoxy(52,7);cout<<"play again: Nhấn Enter ";
+  gotoxy(52,3);cout<<"I> PAUSE:   Nhấn Space";
+  gotoxy(52,5);cout<<"play again: Nhấn Enter ";
+  gotoxy(52,7);cout<<"suggest: nhấn nút di chuyển liên tục để rắn chạy nhanh hơn";  
   gotoxy(52,9);cout<<"ĐIỀU KHIỂN:";
   gotoxy(56,10);cout<<"^";
   gotoxy(54,11);cout<<"<-|->";
