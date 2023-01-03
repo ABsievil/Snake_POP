@@ -6,7 +6,7 @@
 #include<conio.h>  //thư viện để sử dụng hàm kbhit() và hàm getch()-phát hiện nhấn nút
 #include<string>
 
-//(perfect) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn
+//(còn nhiều bug ẩn) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn or do máy cấu hình yếu
 using namespace std;
 
 struct toado{
