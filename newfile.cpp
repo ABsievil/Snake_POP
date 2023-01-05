@@ -5,9 +5,9 @@
 #include<ctime>    //hàm random theo time srand
 #include<conio.h>  //thư viện để sử dụng hàm kbhit() và hàm getch()-phát hiện nhấn nút
 #include<string>
-
-//(còn nhiều bug ẩn) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn or do máy cấu hình yếu
 using namespace std;
+//(còn nhiều bug ẩn) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn or do máy cấu hình yếu
+
 
 struct toado{
    int x,y;
@@ -95,18 +95,18 @@ for(int u=0;u<=::point;u++){
   gotoxy(6,2+u);cout<<name[u];
   gotoxy(28,2+u);cout<<bxh[u];
 }   
-label:
+label:        //nếu nhấn phím enter thì play again
           if(kbhit){
         char dieukhien=getch();
         if(dieukhien==13){::point++;main();}
-        else {goto label;}
+        else {goto label;}     //nếu không phải phím enter mà phím khác thì ko nhận mà cho phép bấm đến khi nào là phím enter thì thoi
          
        }
        
 };
 
 void sapxepdiem(){
-for(int m=0;m<4;m++){
+for(int m=0;m<4;m++){   // sắp xếp điểm sau đó lưu điểm và tên vào tên theo thứ tự từ 1-4
    for(int i=0;i<4;i++){
        if(pt[i]<pt[i+1]){
         int c;string d;
@@ -133,11 +133,11 @@ void menu(){
   gotoxy(52,9);cout<<"ĐIỀU KHIỂN:";
   gotoxy(56,10);cout<<"^";
   gotoxy(54,11);cout<<"<-|->";
-  gotoxy(56,12);cout<<"V";
+  gotoxy(56,12);cout<<"v";
 }
 
 void moi(){ 
-  v: m: c:
+  reset:
   if(pt[point]%5==0 && pt[point]!=0){
    srand(time(NULL));
    A=rand()%(49-1+1)+1;
@@ -145,10 +145,10 @@ void moi(){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if(A==k &B==u)  goto v;}
+      for(int u=8;u<=16;u++){if(A==k &B==u)  goto reset;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if(A==k &B==u)  goto m;} 
+       for(int u=8;u<=16;u++){if(A==k &B==u)  goto reset;} 
        }
  }
 }
@@ -162,10 +162,10 @@ void moi(){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if(a==k &b==u)  goto v;}
+      for(int u=8;u<=16;u++){if(a==k &b==u)  goto reset;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if(a==k &b==u)  goto m;} 
+       for(int u=8;u<=16;u++){if(a==k &b==u)  goto reset;} 
        }
  }
 }
@@ -248,14 +248,14 @@ cout<<"GO!";
 Sleep(1000);
 system("cls");
 
-if(dokho==4){mucdo=250;}
-else if(dokho==3){mucdo=200;}
-else if(dokho==2){mucdo=150;}
+if(dokho==4){mucdo=200;}
+else if(dokho==3){mucdo=150;}
+else if(dokho==2){mucdo=130;}
 else if(dokho==1){mucdo=100;}
 }
 }
 
-void khungtrochoi(){
+void khungtrochoi(){  //buld khung trò chơi gồm màn 1 và màn 2
 if(man==1){
   for(int i=0;i<=50;i++){
 gotoxy(i,0);cout<<"=";
@@ -587,40 +587,40 @@ if((td.x==k &td.y==8)||(td.x==k &td.y==16)){
 int main(){
 if(point==5)point=0;
 system("cls");
-Yescursortype();
-pt[point];
-v.clear();    
-v.push_back("*"); //mảng động
-v.push_back("*");
+Yescursortype();   //hiện trỏ chuột
+pt[point];         //mảng bảng điểm
+v.clear();         //xóa all phần tử trong vector v (xóa đốt con rắn)
+v.push_back("*"); //đẩy * vào vector v
+v.push_back("*"); 
 v.push_back("*");
 
 SetColor(0,2);   //màu(nền,chữ);
 SetConsoleOutputCP(65001);   //tiếng việt not hàm
-giaodienstart();
+giaodienstart(); 
 Nocursortype();//ẩn trỏ chuột
 khungtrochoi();
 moi();
 menu();
 
 //khởi tạo tọa độ đốt đầu tiên
-reset: b: v:  //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì random lại
+reset:   //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì random lại
  srand(time(NULL));
  td.x=rand()%(49-3+1)+3;
  td.y=rand()%(22-3+1)+3;
- int tdx0=td.x;int tdy0=td.y;
+ int tdx0=td.x; int tdy0=td.y;    //lưu tọa độ bang đầu vào tdx0 và tdy0
  for (int s=0;s<=50;s++){ if(td.x==s & td.y==b) goto reset;} // mồi không thể sinh ra cùng hàng với rắn
-if(man==2){
+if(man==2){       //nếu chọn màn 2 mà tọa độ ban đầu trùng với tường phía bên trong khung trò chơi thì random lại 
       for(int k=6;k<=42;k++){
     if(k<=15){
-      for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto v;}
+      for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto reset;}
     }
     else if(35<=k & k<=42){
-       for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto b;} 
+       for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto reset;} 
        }
  }
 }
 
-int dichuyenngaunhien;
+int dichuyenngaunhien;    //tự động random hướng di chuyển ban đầu gòm 4 hướng kí hiệu từ 1 đến 4
  srand(time(NULL));
  dichuyenngaunhien=rand()%(4-1+1)+1;
  if(dichuyenngaunhien==1){       //di chuyển sang phải
