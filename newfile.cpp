@@ -137,7 +137,7 @@ void menu(){
 }
 
 void moi(){ 
-  reset:
+   v: m: c:
   if(pt[point]%5==0 && pt[point]!=0){
    srand(time(NULL));
    A=rand()%(49-1+1)+1;
@@ -145,10 +145,10 @@ void moi(){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if(A==k &B==u)  goto reset;}
+      for(int u=8;u<=16;u++){if(A==k &B==u)  goto v;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if(A==k &B==u)  goto reset;} 
+       for(int u=8;u<=16;u++){if(A==k &B==u)  goto m;} 
        }
  }
 }
@@ -162,10 +162,10 @@ void moi(){
    if(man==2){
       for(int k=10;k<=40;k++){
     if(k<=15){
-      for(int u=8;u<=16;u++){if(a==k &b==u)  goto reset;}
+      for(int u=8;u<=16;u++){if(a==k &b==u)  goto v;}
     }
     else if(35<=k & k<=40){
-       for(int u=8;u<=16;u++){if(a==k &b==u)  goto reset;} 
+       for(int u=8;u<=16;u++){if(a==k &b==u)  goto m;} 
        }
  }
 }
@@ -585,7 +585,7 @@ if((td.x==k &td.y==8)||(td.x==k &td.y==16)){
 }
 
 int main(){
-if(point==5)point=0;
+if(point==5){point=0;pt[0]=0;pt[1]=0;pt[2]=0;pt[3]=0;pt[4]=0;pt[5]=0;}
 system("cls");
 Yescursortype();   //hiện trỏ chuột
 pt[point];         //mảng bảng điểm
@@ -603,7 +603,7 @@ moi();
 menu();
 
 //khởi tạo tọa độ đốt đầu tiên
-reset:   //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì random lại
+reset:b: v:   //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì random lại
  srand(time(NULL));
  td.x=rand()%(49-3+1)+3;
  td.y=rand()%(22-3+1)+3;
@@ -612,10 +612,10 @@ reset:   //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì
 if(man==2){       //nếu chọn màn 2 mà tọa độ ban đầu trùng với tường phía bên trong khung trò chơi thì random lại 
       for(int k=6;k<=42;k++){
     if(k<=15){
-      for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto reset;}
+      for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto v;}
     }
     else if(35<=k & k<=42){
-       for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto reset;} 
+       for(int u=6;u<=18;u++){if(td.x==k &td.y==u)  goto b;} 
        }
  }
 }
