@@ -120,7 +120,8 @@ for(int u=0;u<5;u++)bxh[u]=pt[u];
 
 void tentaikhoan(){
      cout<<"nhập tên tài khoản:";
-     cin>>name[point];
+     cin.ignore(1,'\n');
+     getline(cin,name[point]);
 }
 
 void menu(){
