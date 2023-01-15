@@ -16,8 +16,8 @@ int mucdo;  //chọn độ khó trò chơi
 int pt[5]={0,0,0,0,0},point=0;   //pt là mảng lưu điểm cho mỗi lần chơi, point là lần chơi thứ point
 string name[5];                  //mảng lưu tên cho mỗi lần chơi
 int bxh[5];                      //mảng lưu điểm để in ra bxh
-int man;              //man là biến lưu màn đã chọn, manchoi[man] là mảng chọn màn chơi
- int tdx0,tdy0;       //tọa độ đốt đầu tiên lúc ban đầu
+int man;              //man là biến lưu màn đã chọn, manchoi[man] là mảng chọn màn chơi hiện tại
+ int tdx0,tdy0;       //tọa độ đốt đầu tiên lúc ban đầu 
 
 struct toado{
    int x,y;
@@ -70,32 +70,39 @@ menu();
  srand(time(NULL));
  td.x=rand()%(47-3+1)+3;
  td.y=rand()%(22-3+1)+3;
- tdx0=td.x;tdy0=td.y;    //lưu tọa độ bang đầu vào tdx0 và tdy0
+ tdx0=td.x;tdy0=td.y;    //lưu tọa độ ban đầu vào tdx0 và tdy0
  }
 
 else if(man==2){       //nếu chọn màn 2 mà tọa độ ban đầu trùng với tường phía bên trong khung trò chơi thì random lại 
-  for(int k=8;k<=42;k++){
-    if(k<=22){
-      for(int u=6;u<=18;u++){
-        do{
-            srand(time(NULL));
-            td.x=rand()%(47-3+1)+3;
-            td.y=rand()%(22-3+1)+3;
-             tdx0=td.x; tdy0=td.y;
-          }while(td.x==k && td.y==u);
-       }
-    }
-    else if(28<=k && k<=42){
-       for(int u=6;u<=18;u++){
-        do{
-            srand(time(NULL));
-            td.x=rand()%(47-3+1)+3;
-            td.y=rand()%(22-3+1)+3;
-            tdx0=td.x; tdy0=td.y;
-          }while(td.x==k && td.y==u);
-       }
-    }
- }
+  
+  srand(time(NULL));
+  int mienvitri=rand()%(5-1+1)+1;   //chọn một trong  vùng trống để khởi tạo vị trí rắn
+  if(mienvitri==1){
+ srand(time(NULL));
+ td.x=rand()%(47-3+1)+3;
+ td.y=rand()%(5-3+1)+3;
+  }
+  else if(mienvitri==2){
+    srand(time(NULL));
+ td.x=rand()%(47-3+1)+3;
+ td.y=rand()%(22-19+1)+3;
+  }
+  else if(mienvitri==3){
+    srand(time(NULL));
+ td.x=rand()%(7-3+1)+3;
+ td.y=rand()%(22-3+1)+3;
+  }
+  else if(mienvitri==4){
+    srand(time(NULL));
+ td.x=rand()%(27-23+1)+3;
+ td.y=rand()%(22-3+1)+3;
+  }
+  else if(mienvitri==5){
+    srand(time(NULL));
+ td.x=rand()%(47-43+1)+3;
+ td.y=rand()%(22-3+1)+3;
+  }
+  tdx0=td.x; tdy0=td.y;
 }
 
 int dichuyenngaunhien;    //tự động random hướng di chuyển ban đầu gòm 4 hướng kí hiệu từ 1 đến 4
@@ -462,8 +469,8 @@ void Yescursortype()        //hàm hiện trỏ chuột
 void giaodienstart(){
 cout<<"chào mừng bạn đến với trò chơi"<<endl;
 cout<<endl<<"            START            "<<endl;
-cout<<"(nhấn 1 để bắt đầu trò chơi)"<<endl<<"----------------------------"<<endl;
-int start;
+cout<<"(nhấn 1 để bắt đầu trò chơi)"<<endl<<"════════════════════════════"<<endl;
+int start;                                   
 do{gotoxy(0,5);cin>>start;}while(start!=1);
 system("cls");
 tentaikhoan();
