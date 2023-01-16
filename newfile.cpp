@@ -1,4 +1,4 @@
-#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 thiếu nhiều c/n nhỏ.....3/1 up thêm tính năng màn chơi thứ 2, fix một số bug ẩn...15/1 hiệu chỉnh lại đồ họa game
+#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 thiếu nhiều c/n nhỏ.....3/1 up thêm tính năng màn chơi thứ 2, fix một số bug ẩn...15/1 hiệu chỉnh lại đồ họa game......16/1 fix bug xóa tọa độ (0,0)
 #include<windows.h>  
 #include<vector>
 #include<cstdlib>  //hàm random rand
@@ -76,7 +76,7 @@ menu();
 else if(man==2){       //nếu chọn màn 2 mà tọa độ ban đầu trùng với tường phía bên trong khung trò chơi thì random lại 
   
   srand(time(NULL));
-  int mienvitri=rand()%(5-1+1)+1;   //chọn một trong  vùng trống để khởi tạo vị trí rắn
+  int mienvitri=rand()%(5-1+1)+1;   //chọn một trong các vùng trống để khởi tạo vị trí rắn
   if(mienvitri==1){
  srand(time(NULL));
  td.x=rand()%(47-3+1)+3;
@@ -130,6 +130,7 @@ for(int m=v.size()-1;m>=0;m--){
  else if(m==0){arx[m]=td.x;//gắn tọa độ đốt ban đầu
     if(arx[m]==a && ary[m]==b){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           pt[point]++;          //mồi nhỏ cộng 1 point
           moi();
           gotoxy(58,1);cout<<pt[point];
@@ -210,6 +211,7 @@ for(int m=v.size()-1;m>=0;m--){
  else if(m==0){arx[m]=td.x;//gắn tọa độ đốt ban đầu
     if((arx[m]==a && ary[m]==b)){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           pt[point]++;          //mồi nhỏ cộng 1 point
           moi();
           gotoxy(58,1);cout<<pt[point];
@@ -290,6 +292,7 @@ for(int m=v.size()-1;m>=0;m--){
  else if(m==0){ary[m]=td.y;//gắn tọa độ đốt ban đầu
     if((arx[m]==a && ary[m]==b)){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           pt[point]++;          //mồi nhỏ cộng 1 point
           moi();
           gotoxy(58,1);cout<<pt[point];
@@ -370,6 +373,7 @@ for(int m=v.size()-1;m>=0;m--){
  else if(m==0){ary[m]=td.y;//gắn tọa độ đốt ban đầu
     if((arx[m]==a && ary[m]==b)){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           pt[point]++;          //mồi nhỏ cộng 1 point
           moi();
           gotoxy(58,1);cout<<pt[point];
@@ -427,9 +431,8 @@ if(kbhit()){    //phát hiện nhấn phím
    }
 }
 
-return 0;
- 
 
+return 0;
 }
 
 
@@ -546,8 +549,7 @@ else if(dokho==1){mucdo=100;}
 
 void tentaikhoan(){         //nhập tên tài khoản
      cout<<"nhập tên tài khoản:";
-     cin.ignore(1,'\n');
-     getline(cin,name[point]);
+     cin>>name[point];
 }
 
 void moi(){                //tạo mồi
@@ -761,6 +763,7 @@ void dieukhienlentren(toado td){
             else if(d==0){ary[d]=td.y;
                 if((arx[d]==a && ary[d]==b)||(arx[d]==A && ary[d]==B)){ //nếu ăn được mồi thì tăng thêm một đốt
            v.push_back("*");
+           arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
            if(arx[d]==a && ary[d]==b)pt[point]++;
            else if(arx[d]==A && ary[d]==B)pt[point]+=2;
            moi();
@@ -832,6 +835,7 @@ void dieukhienxuongduoi(toado td){
               else if(d==0){ary[d]=td.y;
        if((arx[d]==a && ary[d]==b)||(arx[d]==A && ary[d]==B)){ //nếu ăn được mồi thì tăng thêm một đốt
          v.push_back("*");
+         arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
          if(arx[d]==a && ary[d]==b)pt[point]++;
          else if(arx[d]==A && ary[d]==B)pt[point]+=2;
          moi();
@@ -904,6 +908,7 @@ void dieukhiensangtrai(toado td){
             else if(d==0){arx[d]=td.x;
        if((arx[d]==a && ary[d]==b)||(arx[d]==A && ary[d]==B)){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           if(arx[d]==a && ary[d]==b)pt[point]++;
           else if(arx[d]==A && ary[d]==B)pt[point]+=2;
           moi();
@@ -975,6 +980,7 @@ void dieukhiensangphai(toado td){
               else if(d==0){arx[d]=td.x;
         if((arx[d]==a && ary[d]==b)||(arx[d]==A && ary[d]==B)){ //nếu ăn được mồi thì tăng thêm một đốt
           v.push_back("*");
+          arx[v.size()-1]=arx[v.size()-2];ary[v.size()-1]=ary[v.size()-2];
           if(arx[d]==a && ary[d]==b)pt[point]++;
           else if(arx[d]==A && ary[d]==B)pt[point]+=2;
           moi();
