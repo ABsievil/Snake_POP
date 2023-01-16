@@ -662,36 +662,6 @@ for(int j=9;j<16;j++){
   gotoxy(30,j);cout<<"║";
   gotoxy(40,j);cout<<"║";
 }
-
-
-/*
-  for(int i=0;i<=50;i++){
-gotoxy(i,0);cout<<"=";
-gotoxy(i,25);cout<<"=";
-}
-for(int j=1;j<25;j++){
-    gotoxy(0,j);cout<<"|";
-    gotoxy(50,j);cout<<"|";
-}
-  for(int k=10;k<=40;k++){
-    if(k<=15){
-gotoxy(k,8);cout<<"=";
-gotoxy(k,16);cout<<"=";
-    }
-    else if(35<=k & k<=40){
-gotoxy(k,8);cout<<"=";
-gotoxy(k,16);cout<<"=";      
-    }
-  }
-  for(int z=9;z<=15;z++){
-    gotoxy(10,z);cout<<"|";
-    gotoxy(15,z);cout<<"|";   
-    gotoxy(35,z);cout<<"|";
-    gotoxy(40,z);cout<<"|";      
-  }
-
-
-*/
 }
 };
 
