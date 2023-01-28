@@ -472,7 +472,7 @@ void Yescursortype()        //hàm hiện trỏ chuột
 void giaodienstart(){
 cout<<"chào mừng bạn đến với trò chơi"<<endl;
 cout<<endl<<"            START            "<<endl;
-cout<<"(nhấn 1 để bắt đầu trò chơi)"<<endl<<"════════════════════════════"<<endl;
+cout<<" (nhấn 1 để bắt đầu trò chơi)"<<endl<<"══════════════════════════════"<<endl;
 int start;                                   
 do{gotoxy(0,5);cin>>start;}while(start!=1);
 system("cls");
@@ -549,8 +549,8 @@ else if(dokho==1){mucdo=100;}
 
 void tentaikhoan(){         //nhập tên tài khoản
      cout<<"nhập tên tài khoản:";
-     cin>>name[point];
-}
+     cin.ignore(1,'\n');
+     getline(cin,name[point]);}
 
 void moi(){                //tạo mồi
   if(pt[point]%5==0 && pt[point]!=0){       //mồi lớn
