@@ -61,8 +61,10 @@ SetConsoleOutputCP(65001);   //tiếng việt not hàm
 giaodienstart(); 
 Nocursortype();//ẩn trỏ chuột
 khungtrochoi();
-moi();
 menu();
+SetColor(0,13);
+moi();
+gotoxy(58,1);cout<<pt[point];
 
 //khởi tạo tọa độ đốt đầu tiên
   //nếu tọa độ 3 đốt đầu trùng với tọa độ mồi thì random lại
@@ -520,7 +522,7 @@ gotoxy(35,12);cout<<"MÀN 2(nhấn 2)";
 gotoxy(0,14);cout<<"hãy chọn màn chơi:";
 gotoxy(18,14); cin>>man; 
 system("cls");
-cout<<"hãy chọn độ khó:"<<"KHÁCH TEST GAME VUI LÒNG CHỌN CẤP 1(mấy cấp sau bị delay nma do dev lười nên chưa fix)"<<endl<<endl<<"CỰC KHÓ(nhấn 1)"<<endl<<"KHÓ(nhấn 2)"<<endl<<"BÌNH THƯỜNG(nhấn 3)"<<endl<<"DỄ(nhấn 4)"<<endl<<"---------------------------"<<endl;
+cout<<"hãy chọn độ khó:"<<endl<<endl<<"CỰC KHÓ(nhấn 1)"<<endl<<"KHÓ(nhấn 2)"<<endl<<"BÌNH THƯỜNG(nhấn 3)"<<endl<<"DỄ(nhấn 4)"<<endl<<"---------------------------"<<endl;
 int dokho;
 do{cin>>dokho;}while(dokho!=1 && dokho!=2 && dokho!=3 && dokho!=4);
 system("cls");
@@ -696,6 +698,7 @@ void bangxephang(){
   gotoxy(24,13);cout<<"3";Sleep(1000);gotoxy(25,13);cout<<" ";
   gotoxy(24,13);cout<<"2";Sleep(1000);gotoxy(25,13);cout<<" ";
   gotoxy(24,13);cout<<"1";Sleep(1000);system("cls");
+  SetColor(0,2);
   gotoxy(1,0);cout<<"RANK";
   gotoxy(1,2);cout<<"1";
   gotoxy(1,3);cout<<"2";
