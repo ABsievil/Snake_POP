@@ -1,4 +1,4 @@
-#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 thiếu nhiều c/n nhỏ.....3/1 up thêm tính năng màn chơi thứ 2, fix một số bug ẩn...15/1 hiệu chỉnh lại đồ họa game......16/1 fix bug xóa tọa độ (0,0)
+#include <iostream> //bản demo 12/12 hoàn thành cơ bản ..13/12 hoàn thành cơ bản chức năng ..14/12 đồ họa cơ bản,chức năng pause  16/12 thiếu nhiều c/n nhỏ.....3/1 up thêm tính năng màn chơi thứ 2, fix một số bug ẩn...15/1 hiệu chỉnh lại đồ họa game......16/1 fix bug xóa tọa độ (0,0) ......6/2 hiệu chỉnh đồ họa 
 #include<windows.h>  
 #include<vector>
 #include<cstdlib>  //hàm random rand
@@ -6,7 +6,7 @@
 #include<conio.h>  //thư viện để sử dụng hàm kbhit() và hàm getch()-phát hiện nhấn nút
 #include<string>
 using namespace std;
-//(còn nhiều bug ẩn) bug xóa tọa độ 0,0 . game nặng quá nhiều khi không in ra con rắn or do máy cấu hình yếu, một phần do random ngẫu nhiên nên nếu random trúng tường phải mất time random lại
+
 
 // các biến toàn cục
 int a,b,A,B;   //tọa độ mồi 
@@ -347,7 +347,7 @@ if(kbhit()){    //phát hiện nhấn phím
           else if(dieukhien==13) main();
          }
    
-    Sleep(mucdo);  
+    Sleep(mucdo+mucdo/2);  
     if(td.x<50){gotoxy(arx[v.size()-1],ary[v.size()-1]);cout<<" ";}  //tọa độ đốt cuối cùng sẽ bị xóa
 
   }
@@ -428,7 +428,7 @@ if(kbhit()){    //phát hiện nhấn phím
           else if(dieukhien==13) main();
          }
    
-    Sleep(mucdo);  
+    Sleep(mucdo+mucdo/2);  
     if(td.x<50){gotoxy(arx[v.size()-1],ary[v.size()-1]);cout<<" ";}  //tọa độ đốt cuối cùng sẽ bị xóa
    }
 }
@@ -472,9 +472,37 @@ void Yescursortype()        //hàm hiện trỏ chuột
 }
 
 void giaodienstart(){
-cout<<"chào mừng bạn đến với trò chơi"<<endl;
-cout<<endl<<"            START            "<<endl;
-cout<<" (nhấn 1 để bắt đầu trò chơi)"<<endl<<"══════════════════════════════"<<endl;
+
+
+
+cout<<"\n\t------------> Welcome to Snake Game <-----------\n";
+cout<<"             ----->(nhấn 1 để bắt đầu trò chơi)<-----"<<endl<<"                  ══════════════════════════════"<<endl;
+    cout<<"\n                             . ***.*.*";
+    cout<<"\n                           * ***X***  ****";
+    cout<<"\n  __                      * **** * *       *";
+    cout<<"\n |  |     |\\    |       /| *                *      /\\      |  /  |-----";
+    cout<<"\n  \\       | \\   |      / | *                *     /  \\     | /   |";
+    cout<<"\n   \\      |  \\  |           *               *    /____\\    |/    |---";
+    cout<<"\n |  |     |   \\ |            *             *    /      \\   | \\   |";
+    cout<<"\n  --      |    \\|             *           *    /        \\  |  \\  |_____";
+    cout<<"\n                               *        *";
+    cout<<"\n                               *......*";
+    cout<<"\n                              *.....*";
+    cout<<"\n                             *....*.*.*..*.";
+    cout<<"\n                            *....*......... **.*.*";
+    cout<<"\n                           *....** * * * ..........*****";
+    cout<<"\n                           *.....**       *.****.* .......*";
+    cout<<"\n                             *.* *            *.*  ****....*";
+    cout<<"\n                                            *.......****...*";
+    cout<<"\n                                           *....**........*";
+    cout<<"\n                               *.*.*       *...*    ****";
+    cout<<"\n                             *.......*     *...*";
+    cout<<"\n                           *...*  *....*..*....*";
+    cout<<"\n                         *..*        **.......*";
+    cout<<"\n                       *.*              **.**";
+    cout<<"\n                     **";
+    cout<<"\n                    *";
+
 int start;                                   
 do{gotoxy(0,5);cin>>start;}while(start!=1);
 system("cls");
