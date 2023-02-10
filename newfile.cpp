@@ -472,16 +472,14 @@ void Yescursortype()        //hàm hiện trỏ chuột
 }
 
 void giaodienstart(){
-
-
-
 cout<<"\n\t------------> Welcome to Snake Game <-----------\n";
 cout<<"             ----->(nhấn 1 để bắt đầu trò chơi)<-----"<<endl<<"                  ══════════════════════════════"<<endl;
+SetColor(0,5);    
     cout<<"\n                             . ***.*.*";
-    cout<<"\n                           * ***X***  ****";
+    cout<<"\n                           * *****XXX ****";
     cout<<"\n  __                      * **** * *       *";
-    cout<<"\n |  |     |\\    |       /| *                *      /\\      |  /  |-----";
-    cout<<"\n  \\       | \\   |      / | *                *     /  \\     | /   |";
+    cout<<"\n |  |     |\\    |      //||*                *      /\\      |  /  |_____";
+    cout<<"\n  \\       | \\   |     // ||*                *     /  \\     | /   |";
     cout<<"\n   \\      |  \\  |           *               *    /____\\    |/    |---";
     cout<<"\n |  |     |   \\ |            *             *    /      \\   | \\   |";
     cout<<"\n  --      |    \\|             *           *    /        \\  |  \\  |_____";
@@ -502,8 +500,8 @@ cout<<"             ----->(nhấn 1 để bắt đầu trò chơi)<-----"<<endl<
     cout<<"\n                       *.*              **.**";
     cout<<"\n                     **";
     cout<<"\n                    *";
-
-int start;                                   
+int start;   
+SetColor(0,2);                                
 do{gotoxy(0,5);cin>>start;}while(start!=1);
 system("cls");
 tentaikhoan();
