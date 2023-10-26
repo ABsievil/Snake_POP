@@ -7,7 +7,6 @@
 #include<string>
 using namespace std;
 
-
 // các biến toàn cục
 int a,b,A,B;   //tọa độ mồi 
 vector<string> v;
@@ -41,7 +40,6 @@ void SetColor(int backgound_color, int text_color);
 void Nocursortype();
 void Yescursortype();
 void khungtrochoi();
-
 
 
 
