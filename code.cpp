@@ -475,8 +475,8 @@ cout<<"             ----->(nhấn 1 để bắt đầu trò chơi)<-----"<<endl<
 SetColor(0,5);    
     cout<<"\n                             . ***.*.*";
     cout<<"\n                           * *****XXX ****";
-    cout<<"\n  __                      * **** * *       *";
-    cout<<"\n |  |     |\\    |      //||*                *      /\\      |  /  |_____";
+    cout<<"\n  __                      * **** * *       *                      _____";
+    cout<<"\n |  |     |\\    |      //||*                *      /\\      |  /  |";
     cout<<"\n  \\       | \\   |     // ||*                *     /  \\     | /   |";
     cout<<"\n   \\      |  \\  |           *               *    /____\\    |/    |---";
     cout<<"\n |  |     |   \\ |            *             *    /      \\   | \\   |";
@@ -692,12 +692,12 @@ for(int j=9;j<16;j++){
 };
 
 void menu(){           //hiển thị menu khi chơi
-  gotoxy(52,0);cout<<"tài khoản:"<<name[point];
+  gotoxy(52,0);cout<<"Tài khoản:"<<name[point];
   gotoxy(52,1);cout<<"Point:";
   gotoxy(58,1);cout<<pt[point];
   gotoxy(52,3);cout<<"I> PAUSE:   Nhấn Space";
-  gotoxy(52,5);cout<<"play again: Nhấn Enter ";
-  gotoxy(52,7);cout<<"suggest: nhấn nút di chuyển liên tục để rắn chạy nhanh hơn";  
+  gotoxy(52,5);cout<<"Play again: Nhấn Enter ";
+  gotoxy(52,7);cout<<"Hint: nhấn nút di chuyển liên tục để rắn chạy nhanh hơn";  
   gotoxy(52,9);cout<<"ĐIỀU KHIỂN:";
   gotoxy(56,10);cout<<"▲";
   gotoxy(54,11);cout<<"◄   ►";
